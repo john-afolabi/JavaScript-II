@@ -4,6 +4,14 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const parent = () => {
+  let number = 1;
+  const child = () => {
+    console.log(`I am ${number} level deep`);
+  };
+  child();
+};
+parent();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
