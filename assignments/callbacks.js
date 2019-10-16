@@ -38,37 +38,45 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
 
+function callbackTest(a, b, cb){
+  return cb(a, b);
+}
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
-  return cb(arr.length);
+  return arr.length;
 }
+console.log(callbackTest(items, "", getLength));
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
-  return cb(arr[arr.length - 1]);
+  return arr[arr.length - 1];
 }
+console.log(callbackTest(items, "", last));
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x + y);
+  return x + y;
 }
+console.log(callbackTest(4, 5, sumNums));
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x * y);
+  return x * y;
 }
+console.log(callbackTest(4, 5, multiplyNums));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
   for (let i = 0; i < list.length; i++) {
     if (item === list[i]) {
-      return cb(item); 
+      return true;
     }
-    return false
+    return false;
   }
 }
+console.log(callbackTest('Pencil', items, contains));
 
 /* STRETCH PROBLEM */
 
